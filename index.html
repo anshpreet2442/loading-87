@@ -13,7 +13,33 @@
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<div class="word">LOADING_ADMIN_PANEL...</div>
+<div class="word">LOADING_ADMIN_PANEL_IN_<span id="countdown">7</span> secs...</div>
+
+<script>
+  // Function to update the countdown value
+  function updateCountdown(value) {
+    document.getElementById('countdown').textContent = value;
+  }
+
+  // Countdown function
+  function countdown() {
+    var count = 7;
+    var countdownInterval = setInterval(function() {
+      updateCountdown(count);
+      count--;
+      if (count < 0) {
+        clearInterval(countdownInterval);
+        // Additional actions can be added here once countdown finishes
+      }
+    }, 1000); // Update every second
+  }
+
+  // Start the countdown when the page is loaded
+  window.onload = function() {
+    countdown();
+  };
+</script>
+
 <div class="overlay"></div>
 <!-- partial -->
   <script src='https://anshx.tech/scripts/jquery.js'></script>
